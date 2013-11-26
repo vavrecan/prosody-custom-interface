@@ -136,8 +136,8 @@ local function handle_outgoing(event)
 	return nil;
 end
 
-module:hook("pre-message/bare", handle_outgoing);
-module:hook("pre-message/full", handle_outgoing);
+module:hook("pre-message/bare", handle_outgoing, 1000);
+module:hook("pre-message/full", handle_outgoing, 1000);
 
 -- read only roster (user list) - requested from custom url
 -- json list with objects containg jid and name
@@ -196,6 +196,6 @@ end
 
 module:add_feature("jabber:iq:roster");
 
-module:hook("stream-features", add_roster_support);
-module:hook("iq/self/jabber:iq:roster:query", handle_roster);
+module:hook("stream-features", add_roster_support, 1O00);
+module:hook("iq/self/jabber:iq:roster:query", handle_roster, 1000);
 
