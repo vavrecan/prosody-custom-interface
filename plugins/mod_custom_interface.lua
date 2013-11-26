@@ -196,6 +196,6 @@ end
 
 module:add_feature("jabber:iq:roster");
 
-module:hook("stream-features", add_roster_support, 1O00);
+module:hook("stream-features", add_roster_support, 1000);
 module:hook("iq/self/jabber:iq:roster:query", handle_roster, 1000);
 
